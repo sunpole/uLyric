@@ -3,6 +3,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 FILES = [
+    "00_MASTER_AGENT.md",
     "AGENTS.md",
     "01_PROJECT_SYSTEM.md",
     "02_ORCHESTRATOR_AGENT.md",
@@ -17,6 +18,13 @@ FILES = [
     "11_TEST_SUITE.md",
     "12_NORMATIVE_SOURCES.md",
     "13_RUSSIAN_PHONETICS.md",
+    "14_BIBLE_CHECK_AGENT.md",
+    "15_AI_STYLE_CHECK_AGENT.md",
+    "16_USER_MODES.md",
+    "17_CONTEXT_MANAGER.md",
+    "18_FEEDBACK_LOOP.md",
+    "19_FAILURE_RECOVERY.md",
+    "20_USER_GUIDE.md",
 ]
 
 parts = ["# uLyric — полный комплект агентов и правил\n"]

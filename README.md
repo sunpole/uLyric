@@ -1,83 +1,53 @@
 # uLyric
 
-**uLyric** — набор инструкций и проверок для работы ChatGPT с русской поэзией: подбор рифм, анализ ритма и размера, построение строк, редактура и финальный контроль качества.
+**AI-assisted toolkit for Russian poetry and song lyrics.**
 
-> Это не отдельная обученная модель. Репозиторий хранит регламенты, специализированные роли и тесты, которые задают последовательность работы с поэтическим текстом.
+uLyric is a rule and agent system designed for a ChatGPT Project where the user can work in ordinary Russian without learning technical commands.
 
-## Быстрый старт
+## What it helps with
 
-Для проекта ChatGPT используйте:
+Rhymes, line rewriting, rhythm, syllables, natural Russian, poem analysis, song adaptability, biblical references, theological consistency, preservation of author voice, and stylistic review.
 
-1. `AGENTS.md` — главный маршрут работы.
-2. `PROJECT_INSTRUCTIONS_COPY.txt` — короткий текст для поля «Пользовательские инструкции» проекта.
-3. `ALL_IN_ONE.md` — все роли и правила одним документом.
-4. `09_SCORING_RUBRIC.md` — шкала оценки.
-5. `11_TEST_SUITE.md` — контрольные тесты.
+## User experience
 
-## Схема работы
+The user simply writes:
 
-```text
-Запрос автора
-   ↓
-ORCHESTRATOR
-   ↓
-выбор нужного маршрута
-   ↓
-RHYME / RHYTHM / SEMANTIC_STYLE
-   ↓
-LINE_CONSTRUCTOR или POETIC_EDITOR — при необходимости
-   ↓
-SCORING
-   ↓
-QA_CRITIC
-   ↓
-Ответ автору
-```
+> «Рифмы к слову “сердце”. Только сильные.»
 
-## Документы
+or:
 
-| Файл | Назначение |
-|---|---|
-| `00_README.md` | исходное описание комплекта |
-| `AGENTS.md` | обязательная маршрутизация |
-| `01_PROJECT_SYSTEM.md` | общие правила проекта |
-| `02_ORCHESTRATOR_AGENT.md` | определение типа задачи |
-| `03_RHYME_AGENT.md` | рифма, ударение и фонетика |
-| `04_RHYTHM_METER_AGENT.md` | ритм, слоги и размер |
-| `05_SEMANTIC_STYLE_AGENT.md` | смысл, стиль и естественность |
-| `06_LINE_CONSTRUCTOR_AGENT.md` | построение строк |
-| `07_POETIC_EDITOR_AGENT.md` | редактура авторского текста |
-| `08_QA_CRITIC_AGENT.md` | финальный контроль |
-| `09_SCORING_RUBRIC.md` | шкала качества |
-| `10_OUTPUT_TEMPLATES.md` | форматы ответов |
-| `11_TEST_SUITE.md` | регрессионные тесты |
-| `12_NORMATIVE_SOURCES.md` | приоритет нормативных источников |
-| `13_RUSSIAN_PHONETICS.md` | рабочие фонетические принципы |
-| `ALL_IN_ONE.md` | объединённая версия основного комплекта |
-| `PROJECT_INSTRUCTIONS_COPY.txt` | короткая инструкция для проекта ChatGPT |
+> «Переделай строку, но последнее слово не трогай.»
 
-## Приоритет качества
+or:
 
-1. нормативное ударение;
-2. реальное фонетическое звучание;
-3. смысл;
-4. естественность русского языка;
-5. ритм;
-6. сохранение авторского голоса;
-7. художественная выразительность.
+> «Проверь этот стих по Библии и по ритму, пока ничего не исправляй.»
 
-Красивое решение с ненормативным ударением должно быть отклонено.
+The internal routing stays hidden.
 
-## GitHub Pages
+## Architecture
 
-Витрина проекта находится по адресу: **https://sunpole.github.io/uLyric/**
+`00_MASTER_AGENT.md` → `AGENTS.md` → task-specific modules → `QA_CRITIC`.
 
-Главная страница — обычный `index.html`, без сборщиков, фреймворков и зависимостей.
+Canonical rules are stored in this repository. `ALL_IN_ONE.md` is generated automatically from the individual source files.
 
-## Версионирование
+## ChatGPT Project setup
 
-Текущая версия: **1.0.0**. История изменений — в `CHANGELOG.md`.
+For the ChatGPT Project, use the compact Project Source Pack:
+- `00_MASTER_AGENT.md`
+- `AGENTS.md`
+- `ALL_IN_ONE.md`
+- `PROJECT_INSTRUCTIONS_COPY.txt`
+- `VERSION.md`
+- `20_USER_GUIDE.md`
 
-## Лицензия
+Paste the contents of `PROJECT_INSTRUCTIONS_COPY.txt` into Project Instructions.
 
-Репозиторий распространяется по лицензии MIT, если для конкретного подключаемого словаря или корпуса явно не указано иное.
+GitHub is the canonical development source, while the attached Project files are a reliable fallback if GitHub is unavailable.
+
+## Version
+
+See [VERSION.md](VERSION.md) and [CHANGELOG.md](CHANGELOG.md).
+
+## License
+
+MIT.

@@ -1,17 +1,19 @@
 # Changelog
 
-## 1.0.0 — 2026-08-27
+## 2.0.0 — 2026-08-27
 
-### Добавлено
+- Added `00_MASTER_AGENT.md` as the human-friendly entry point.
+- Added natural-language enable/disable modes.
+- Added `BIBLE_CHECK` for references, context and theology.
+- Added `AI_STYLE_CHECK` with an explicit no-false-watermark rule.
+- Added context isolation for new poems in old chats.
+- Added feedback loop for natural user corrections.
+- Added source/GitHub failure recovery.
+- Added a short end-user guide.
+- Expanded the regression test suite to 32 cases.
+- Updated AGENTS routing and automatic ALL_IN_ONE generation.
+- Prepared a smaller Project Source Pack for ChatGPT Projects.
 
-- базовая архитектура проекта «Рифмы и стихи»;
-- `AGENTS.md` с обязательными маршрутами;
-- отдельные роли для рифмы, ритма, смысла, построения строк, редактуры и QA;
-- `09_SCORING_RUBRIC.md`;
-- `10_OUTPUT_TEMPLATES.md`;
-- `11_TEST_SUITE.md`;
-- `ALL_IN_ONE.md`;
-- `PROJECT_INSTRUCTIONS_COPY.txt`;
-- справочная политика нормативных источников;
-- рабочая памятка по фонетической оценке рифмы;
-- статическая страница GitHub Pages.
+## 1.0.0
+
+Initial agent architecture for rhyme, rhythm, semantics, line construction, editing and QA.

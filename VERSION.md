@@ -1,14 +1,7 @@
-# Version
+# uLyric version
 
-**uLyric 1.0.0**
+**Current version: 2.0.0**
 
-Дата фиксации базовой архитектуры: 2026-08-27.
+Released: 2026-08-27
 
-## Состав версии
-
-- обязательная маршрутизация через `AGENTS.md`;
-- специализированные роли RHYME, RHYTHM, SEMANTIC_STYLE, LINE_CONSTRUCTOR, POETIC_EDITOR и QA_CRITIC;
-- 100-балльная шкала качества;
-- набор контрольных тестов;
-- единый файл `ALL_IN_ONE.md`;
-- простая GitHub Pages-витрина.
+Focus: transparent natural-language UX for poetry work, optional Bible/theology checks, context isolation, AI-style review, feedback loop and GitHub fallback.
