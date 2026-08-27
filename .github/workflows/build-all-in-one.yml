@@ -1,0 +1,46 @@
+name: Build ALL_IN_ONE
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "AGENTS.md"
+      - "01_PROJECT_SYSTEM.md"
+      - "02_ORCHESTRATOR_AGENT.md"
+      - "03_RHYME_AGENT.md"
+      - "04_RHYTHM_METER_AGENT.md"
+      - "05_SEMANTIC_STYLE_AGENT.md"
+      - "06_LINE_CONSTRUCTOR_AGENT.md"
+      - "07_POETIC_EDITOR_AGENT.md"
+      - "08_QA_CRITIC_AGENT.md"
+      - "09_SCORING_RUBRIC.md"
+      - "10_OUTPUT_TEMPLATES.md"
+      - "11_TEST_SUITE.md"
+      - "12_NORMATIVE_SOURCES.md"
+      - "13_RUSSIAN_PHONETICS.md"
+      - "scripts/build_all_in_one.py"
+      - ".github/workflows/build-all-in-one.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build combined document
+        run: python scripts/build_all_in_one.py
+      - name: Commit generated file
+        run: |
+          if git diff --quiet -- ALL_IN_ONE.md && git ls-files --error-unmatch ALL_IN_ONE.md >/dev/null 2>&1; then
+            echo "ALL_IN_ONE.md is already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ALL_IN_ONE.md
+          git commit -m "build: regenerate ALL_IN_ONE"
+          git push
